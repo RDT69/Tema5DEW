@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Prueba con fetch</h1>
+  <p>
+    <button onclick="loadText('text1.txt')">Cargar Texto1</button>
+    <button onclick="loadText('text2.txt')">Cargar Texto2</button>
+    <button onclick="loadText('text3.txt')">Cargar Texto3</button>
+  </p>  
+  <p id="content">No hay nada aun</p>
+  <script>
+    const content = document.getElementById('content');
+
+    // function loadText(file) {
+    //   const promesa = fetch(file);
+    //   console.log(promesa);
+    //   promesa.then(function(data){
+    //     const promesa2 = data.text();
+    //     promesa2.then(function(text){
+    //       console.log(text);  
+    //        content.textContent = text;
+    //     })
+    //   })
+   
+    // }
+
+    function loadText(file) {
+      fetch(file).then(response => response.text())
+      .then(text => content.textContent = text)
+    }
+
+</script>
+</body>
+</html>
